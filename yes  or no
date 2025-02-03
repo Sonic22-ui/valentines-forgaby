@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: red;
+            font-size: 3em;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .yes {
+            background-color: red;
+            color: white;
+        }
+        .no {
+            background-color: gray;
+            color: white;
+            position: absolute;
+        }
+        img {
+            width: 60%;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        let noClicks = 0;
+        const noMessages = [
+            "Are you sure?",
+            "Really sure?",
+            "Think again!",
+            "Last chance!",
+            "Come on, say yes!"
+        ];
+
+        function moveNoButton() {
+            let btn = document.getElementById("noButton");
+            btn.style.top = Math.random() * window.innerHeight + "px";
+            btn.style.left = Math.random() * window.innerWidth + "px";
+        }
+
+        function askAgain() {
+            if (noClicks < noMessages.length) {
+                document.getElementById("noButton").innerText = noMessages[noClicks];
+                noClicks++;
+            } else {
+                alert("No is not an option! ❤️");
+            }
